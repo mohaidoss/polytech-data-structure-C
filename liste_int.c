@@ -21,12 +21,16 @@ void ajout_en_queue_liste_int (struct liste_int* L, int x)
 /* appeler ici un �ventuel constructeur pour nouveau->value */
     nouveau->value = x;       /* affectation de la valeur */
     nouveau->next = (struct maillon_int*)0;
-    nouveau->before = L->queue;
-    L->queue = nouveau;
-    L->nbelem += 1;
-    if (est_vide_liste_int(L)){
-		    L->tete = nouveau;
+    if (!est_vide_liste_int(L)){
+	    nouveau->before = L->queue;
+	    L->queue = nouveau;
+	    L->nbelem += 1;
 	  }
+    else{
+	    L->tete = nouveau;
+	    L->queue = nouveau;
+	    L->nbelem += 1;
+    }
 }
 
 void clear_liste_int (struct liste_int* L)

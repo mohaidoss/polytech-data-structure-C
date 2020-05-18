@@ -9,9 +9,9 @@ int main(){
 
 	enfiler_int(&F,7);
 	enfiler_int(&F,77);
-	
+
 	imprimer_file_int(&F);
-	
+
 	clear_file_int(&F);
 	return 0;
 }
