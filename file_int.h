@@ -10,3 +10,4 @@ int est_vide_file_int (struct file_int*);
 void enfiler_int (struct file_int*, int);
 void defiler_int (int *, struct file_int*);
 void imprimer_file_int(struct file_int*);
+void clear_file_int(struct file_int*);

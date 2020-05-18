@@ -22,3 +22,7 @@ void defiler_int (int* v, struct file_int* F){
 void imprimer_file_int(struct file_int* F){
 	print_liste_int(&(F->L));
 }
+
+void clear_file_int(struct file_int* F){
+	clear_liste_int(&(F->L));
+}
