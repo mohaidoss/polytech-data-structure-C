@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
 #include "liste_int.h"
 
 int est_vide_liste_int (struct liste_int* L){
@@ -57,7 +60,7 @@ void print_liste_int (struct liste_int* L)
 void extraire_en_tete_liste_int (struct liste_int* L, int* x){
 	if (!est_vide_liste_int(L)){
 		struct maillon_int* suivant;
-		*x = L->tete->valeur;
+		*x = L->tete->value;
 		suivant = L->tete->next;
 		free(L->tete);
 		L->tete=suivant;

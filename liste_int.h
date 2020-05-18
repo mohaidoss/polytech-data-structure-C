@@ -47,10 +47,10 @@ extern void init_liste_int (struct liste_int*);
 extern void clear_liste_int (struct liste_int*);
 
 /* Affiche son paramètre sur la sortie standard. */
-extern void print_liste_int (struct liste_int);
+extern void print_liste_int (struct liste_int*);
 
 /* extrait d en tête de la liste L. La liste L est modifiée. */
-extern void extraire_en_tete_liste_int (struct liste_int* L, int x);
+extern void extraire_en_tete_liste_int (struct liste_int* L, int* x);
 
 /* Ajoute d en queue de la liste L. La liste L est modifiée. */
 extern void ajout_en_queue_liste_int (struct liste_int* L, int x);
