@@ -2,7 +2,7 @@
 
 struct file_int
 {
-    struct liste_int L;
+    struct liste_int *L;
 };
 
 void init_file_int (struct file_int*);
