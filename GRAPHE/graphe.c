@@ -4,8 +4,6 @@
 #include "file_int.h"
 
 void init_file_int (struct file_int* F){
-//	&(F->L) = (struct liste_int*)0;
-	init_liste_int(&(F->L));
 }
 
 int est_vide_file_int (struct file_int* F){
