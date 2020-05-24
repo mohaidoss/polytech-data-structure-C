@@ -9,7 +9,7 @@ struct sommet
 struct graphe
 {
 	int nb_sommets;
-	struct sommet* tab[nb_sommets];
+	struct sommet* tab;
 };
 
 void init_graphe (struct graphe*);
