@@ -65,8 +65,12 @@ void extraire_en_tete_liste_int (struct liste_int* L, int* x){
 	if (!est_vide_liste_int(L)){
 		struct maillon_int* suivant;
 		*x = L->tete->value;
+		L->nbelem=(L->nbelem) - 1;
 		suivant = L->tete->next;
 		free(L->tete);
 		L->tete=suivant;
+	}
+	else{
+		printf("La file est vide!");
 	}
 }
