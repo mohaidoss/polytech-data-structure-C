@@ -22,7 +22,7 @@ void ajout_en_queue_liste_int (struct liste_int* L, int x)
     nouveau->value = x;       /* affectation de la valeur */
     nouveau->next = (struct maillon_int*)0;
     if (!est_vide_liste_int(L)){
-	    nouveau->before = L->queue;
+	    L->queue->next = nouveau;
 	    L->queue = nouveau;
 	    L->nbelem += 1;
 	  }

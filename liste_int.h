@@ -19,7 +19,6 @@
 struct maillon_int
 {   int value;
     struct maillon_int* next;
-    struct maillon_int* before;
 };
 
 struct liste_int
