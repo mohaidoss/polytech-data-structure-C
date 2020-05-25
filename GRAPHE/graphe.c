@@ -1,28 +1,61 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
-#include "file_int.h"
+#include "graphe.h"
 
-void init_file_int (struct file_int* F){
+static void init_sommets(struct sommet* tab,int taille){
+	int i;
+	for(i=0;i<taille;i++){
+		tab[i].num = i;
+		tab[i].succ = (struct liste_int*)0;
+	}
 }
 
-int est_vide_file_int (struct file_int* F){
-	//est_vide_liste_int(&(F->L));
-	return &(F->L) == (struct liste_int*)0;
+void init_graphe (int taille,struct graphe* G){
+	G->nb_sommets = taille;
+	G->tab = malloc(taille*sizeof(struct sommet));
+	assert(G!=NULL);
+	init_sommets(G->tab,taille);
 }
 
-void enfiler_int (struct file_int* F, int v){
-	ajout_en_queue_liste_int (&(F->L), v);
+void ajout_succ(struct graphe* G,int prec,int suc){
+	//On sait qu'il faut le rajouter dans tab[prec]
+	if ((G->tab[prec]).succ != (struct liste_int*)0){
+		//Si le sommet a déjà des successeurs
+		ajout_en_queue_liste_int((G->tab[prec]).succ,suc);	
+	}
+	else{
+		//Si le sommet n'a pas de succeseuts
+		struct liste_int* succ;
+		init_liste_int(succ);
+		ajout_en_queue_liste_int(succ,suc);
+		(G->tab[prec]).succ = succ;
+	}
 }
 
-void defiler_int (int* v, struct file_int* F){
-	extraire_en_tete_liste_int (&(F->L), v);
+void afficher_graphe(struct graphe* G){
+	int taille = G->nb_sommets;
+	int i;
+	for (i=0;i<taille;i++){
+		printf("%d\t: ",(G->tab[i]).num);
+		if (est_vide_liste_int((G->tab[i]).succ)){
+			//Il n'aya pas de successeurs
+			printf("[\t]\n");
+		}
+		else{
+			//Il ya des succ
+			print_liste_int((G->tab[i]).succ);
+		}
+	}
 }
 
-void imprimer_file_int(struct file_int* F){
-	print_liste_int(&(F->L));
+void clear_graphe(struct graphe* G){
+	int taille = G->nb_sommets;
+	int i;
+	for (i=0;i<taille;i++){
+		clear_liste_int((G->tab[i]).succ);
+	}
+	free(G->tab);
+	free(G);
 }
 
-void clear_file_int(struct file_int* F){
-	clear_liste_int(&(F->L));
-}
