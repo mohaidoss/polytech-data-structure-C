@@ -1,0 +1,30 @@
+struct liste_int* parcours_largeur(struct Sommet* graphe, int numero_sommet){
+	struct file_int* F; //La file responsable du parcours en largeur
+	struct liste_int* L; //La liste finale qui contiendra le plus court chemin
+	init_liste_int(L);
+	init_file_int (F);
+	//On intialise le booléen marqué de tous les sommets à faux
+	for(int i=0;i<graphe->nbtotal_sommets;i++){
+		graphe[i].marque= false ;
+	}
+	enfiler_int(F,numero_sommet);
+	graphe[numero_sommet].marque = true ;
+	while(!est_vide_file_int (F)){
+		numero_sommet = defiler_int(&numero_sommet,F);
+		ajout_en_queue_liste_int (L, numero_sommet);
+
+		struct liste_int* liste_succ = liste_successeurs(graphe,numero_sommet);
+		struct int_maillon* M ;
+		M = liste_succ->tete ;
+
+		//pour chaque voisin de numero_sommet non marqué, on le marque et on l'enfile
+		for(int j=0;j<(liste_succ->nbelem);j++){
+			if(graphe[M->valeur].marque) == false{
+				graphe[M->valeur].marque == true ;
+				enfiler_int(F,graphe[M->valeur].numero_sommet);
+			}
+			M = M->suivant ;
+		}
+	}
+	return(L);
+}
