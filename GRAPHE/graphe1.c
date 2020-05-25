@@ -30,7 +30,12 @@ void afficher_graphe(struct Sommet* g,int size){
 	int i;
 	for(i=0;i<size;i++){
 		printf("%d : ",g[i].valeur);
-		print_liste_int(g[i].succ);
+		if (g[i].succ != ((struct liste_int*)0)) {
+		    print_liste_int(g[i].succ);
+		}
+		else {
+		    printf("[ ]\n");
+		}
 	}
 }
 
