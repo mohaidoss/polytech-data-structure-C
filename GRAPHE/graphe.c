@@ -49,6 +49,18 @@ void afficher_graphe(struct graphe* G){
 	}
 }
 
+void charger_graphe(struct graphe* G,FILE* fic){
+	int nb_sommets;
+	fscanf(fic,"%d",&nb_sommets);
+	init_graphe(nb_sommets,G);
+	int prec;
+	int succ;
+	while (fscanf(fic,"%d%d",&prec,&succ)!=E0F){
+		ajout_succ(G,prec,succ);
+	}
+}
+
+
 void clear_graphe(struct graphe* G){
 	int taille = G->nb_sommets;
 	int i;
