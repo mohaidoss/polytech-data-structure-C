@@ -4,7 +4,7 @@
 
 int main(){
 	int N=7;
-	struct Sommet** graphe = init_graphe(N);
+	struct Sommet* graphe = init_graphe(N);
 	ajout_succ(graphe,0,1);
 	ajout_succ(graphe,0,2);
 	ajout_succ(graphe,1,5);
