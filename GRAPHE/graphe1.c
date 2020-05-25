@@ -29,6 +29,16 @@ void afficher_graphe(struct Sommet* g,int size){
 	}
 }
 
+void charger_graphe(struct Sommet* g, FILE* fic,int* n){
+	fscanf(fic,"%d",n);
+	g = init_graphe(*n);
+	int s1,s2;
+	while(fscanf(fic,"%d%d",&s1,&s2) != EOF)
+		ajout_succ(g,s1,s2);
+}
+struct liste_int* liste_succ(struct Sommet* g,int s){
+	return g[s].succ;
+}
 void clear_graphe(struct Sommet* g, int size){
 	int i;
 	for(i=0;i<size;i++){
