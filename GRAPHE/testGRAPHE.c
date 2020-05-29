@@ -3,6 +3,7 @@
 #include "graphe.h"
 
 int main(){
+	//Version 1
 	int taille = 5;
 	struct graphe G;
 	init_graphe(taille,&G);
@@ -12,5 +13,11 @@ int main(){
 	ajout_succ(&G,4,3);
 	afficher_graphe(&G);
 	clear_graphe(&G);
-	exit(0);
+	//Version 2
+	FILE* fic;
+	fic = fopen("charge_graphe.txt","r");
+	charger_graphe(&G,fic);
+	fclose(fic);
+	afficher_graphe(&G);
+	clear_graphe(&G);
 }
