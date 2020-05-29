@@ -12,4 +12,5 @@ int main(){
 	ajout_succ(&G,4,3);
 	afficher_graphe(&G);
 	clear_graphe(&G);
+	exit(0);
 }

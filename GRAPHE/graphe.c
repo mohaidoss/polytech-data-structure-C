@@ -56,6 +56,7 @@ void clear_graphe(struct graphe* G){
 	int i;
 	for (i=0;i<taille;i++){
 		clear_liste_int((G->tab[i]).succ);
+		free((G->tab[i]).succ);
 	}
 	free(G->tab);
 }
