@@ -8,6 +8,7 @@ static void init_sommets(struct sommet* tab,int taille){
 	for(i=0;i<taille;i++){
 		tab[i].num = i;
 		tab[i].succ = malloc(sizeof(struct liste_int));
+		init_liste_int(tab[i].succ);
 	}
 }
 
@@ -57,6 +58,5 @@ void clear_graphe(struct graphe* G){
 		clear_liste_int((G->tab[i]).succ);
 	}
 	free(G->tab);
-	free(G);
 }
 
