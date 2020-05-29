@@ -72,5 +72,6 @@ void extraire_en_tete_liste_int (struct liste_int* L, int* x){
 	}
 	else{
 		printf("La file est vide!");
+		*x = -1;
 	}
 }
