@@ -15,5 +15,6 @@ struct graphe
 void init_graphe (int taille,struct graphe*);
 void ajout_succ (struct graphe*, int prec, int suc);
 void afficher_graphe (struct graphe*);
+struct liste_int* liste_succ(struct graphe*,int);
 void charger_graphe(struct graphe*,FILE* fic);
 void clear_graphe(struct graphe*);

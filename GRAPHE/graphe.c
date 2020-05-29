@@ -50,6 +50,9 @@ void charger_graphe(struct graphe* G,FILE* fic){
 	}
 }
 
+struct liste_int* liste_succ(struct graphe* G,int num){
+	return ((G->tab[num]).succ);
+}
 
 void clear_graphe(struct graphe* G){
 	int taille = G->nb_sommets;
