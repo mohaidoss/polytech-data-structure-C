@@ -13,14 +13,7 @@ int main(){
 	int s1,s2;
 	scanf("%d%d",&s1,&s2);
 	struct liste_int* chemin;
-	chemin = parcours_larg(&G,s1,s2);
-	if(est_vide_liste_int(chemin)){
-		printf("Pas de chemin !\n");
-	}
-	else{
-		print_liste_int(chemin);
-	}
+	parcours_larg(&G,s1,s2);
 	clear_graphe(&G);
-	free(chemin);
 
 }
