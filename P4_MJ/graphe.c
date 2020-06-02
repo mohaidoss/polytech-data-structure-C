@@ -50,7 +50,7 @@ void charger_graphe(struct graphe* G,FILE* fic){
 	}
 }
 
-void parcours_larg(struct graphe* G,int s1,int s2){
+void parcours_larg(struct graphe* G,int s1,int s2,struct liste_int* chemin,int* trouve){
 	int taille = G->nb_sommets;
 	int mark[taille];
 	int i,sommet;
@@ -62,10 +62,10 @@ void parcours_larg(struct graphe* G,int s1,int s2){
 	}
 	mark[s1]=1;
 	ajout_en_queue_liste_int(exploration,s1);
+	ajout_en_queue_liste_int(chemin,s1);
 	//Traitement
 	struct maillon_int* M;
 	while(!est_vide_liste_int(exploration)){
-		print_liste_int(exploration);
 		extraire_en_tete_liste_int(exploration,&sommet);
 		struct liste_int* successeurs = liste_succ(G,sommet);
 		int nb_succ = successeurs->nbelem;
@@ -75,9 +75,10 @@ void parcours_larg(struct graphe* G,int s1,int s2){
 			if (mark[M->value] == 0){
 				mark[M->value] = 1;
 				ajout_en_queue_liste_int(exploration,M->value);
+				ajout_en_queue_liste_int(chemin,M->value);
 			}
 			if (M->value == s2){
-				printf("BBINOGO\n");
+				*trouve = 1;
 			}
 			M = M->next;
 		}

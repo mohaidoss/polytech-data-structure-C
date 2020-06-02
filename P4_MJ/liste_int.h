@@ -16,6 +16,7 @@
  * Des listes distinctes ont des maillons distincts (pas de maillon partagé).
  **********************************************************************/
 
+//Définitions des structures maillon et liste
 struct maillon_int
 {   int value;
     struct maillon_int* next;

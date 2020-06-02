@@ -21,12 +21,12 @@ void ajout_en_queue_liste_int (struct liste_int* L, int x)
 /* appeler ici un �ventuel constructeur pour nouveau->value */
     nouveau->value = x;       /* affectation de la valeur */
     nouveau->next = (struct maillon_int*)0;
-    if (!est_vide_liste_int(L)){
+    if (!est_vide_liste_int(L)){//Si la liste n'est pas vide la nouvelle queue et le maillon après lancienne queue
 	    L->queue->next = nouveau;
 	    L->queue = nouveau;
 	    L->nbelem += 1;
 	  }
-    else{
+    else{//Si la liste est vide la valeur enfile est la nouvelle queue et tete
 	    L->tete = nouveau;
 	    L->queue = nouveau;
 	    L->nbelem += 1;
@@ -70,7 +70,7 @@ void extraire_en_tete_liste_int (struct liste_int* L, int* x){
 		free(L->tete);
 		L->tete=suivant;
 	}
-	else{
+	else{//Si la liste est vide alors x nesxiste pas dans la liste donc on lui affecte une valeur negative qui ne peut pad etre dans le graphe
 		printf("La file est vide!");
 		*x = -1;
 	}
